@@ -2,24 +2,28 @@
 
 	require_once("config/globals.php");
 
-	require_once("classes/Categories.php");
+	require_once("dao/CategoryDAO.php");
 
-	$categories = new Categories();
+	$newCategory = new Category();
+	$categoryDAO = new CategoryDAO($pdo);
+
+	$listCategories = $categoryDAO->returnAll();
 
 	if(!isset($_COOKIE['category'])){
-		$categories->setInCookie('Todos');
+		$newCategory->setInCookie('Todos');
 	}
 
 	if(isset($_POST['category'])){
 		
-		$category = $categories->sanitize($_POST['category']);
+		$category = $newCategory->sanitize($_POST['category']);
 
 		if($category != $_COOKIE['category']){
-			$categories->setInCookie($category);
-		}
-		
-
+			$newCategory->setInCookie($category);
+		}	
 	}
+
+
+
 
 ?>
 
@@ -43,13 +47,18 @@
 
 				</ul>
 
-				<form action="<?=$BASE_URL?>iindex.php" method="POST">
+				<form action="<?=$BASE_URL?>index.php" method="POST">
 					<span>Buscar por Categoria</span>
 					<div>
 							
 						<select name="category" >
 							<option value="Todos">Todos</option>
+							<?php foreach ($listCategories  as $category): ?>
+								
+								<option value="<?=$category->getCategory()?>"><?=$category->getCategory()?></option>
+							<?php endforeach ?>
 						</select>
+
 						<input type="submit" value="Buscar">
 					</div>
 				</form>

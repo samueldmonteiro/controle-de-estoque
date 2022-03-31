@@ -1,7 +1,26 @@
 <?php
 
-	class Categories{
 
+	class Category{
+
+		private $category;
+		private $categories;
+
+		public function getCategory(){
+			return $this->category;
+		}
+
+		public function setCategory($category){
+			$this->category = $category;
+		}
+
+		public function getCategories(){
+			return $this->categories;
+		}
+
+		public function setCategories($categories){
+			$this->categories = $categories;
+		}
 
 		public function sanitize($category){
 
@@ -24,5 +43,4 @@
 			exit;
 		}
 	}
-
 ?>
