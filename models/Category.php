@@ -37,6 +37,7 @@
 		public function setInCookie($category){
 
 			$expire = time() + ( 60 * 60 * 24 * 30 );
+			
 			setcookie('category', $category, $expire);
 
 			header('Location: index.php');

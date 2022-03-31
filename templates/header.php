@@ -3,6 +3,8 @@
 	require_once("config/globals.php");
 
 	require_once("dao/CategoryDAO.php");
+	require_once("dao/ProductDAO.php");
+
 
 	$newCategory = new Category();
 	$categoryDAO = new CategoryDAO($pdo);
@@ -43,7 +45,7 @@
 			<nav>
 				<ul>
 					<li><a href="<?=$BASE_URL?>index.php">Home</a></li>
-					<li><a href="<?=$BASE_URL?>ilogin.php">Login</a></li>
+					<li><a href="<?=$BASE_URL?>login.php">Login</a></li>
 
 				</ul>
 

@@ -9,6 +9,7 @@
 		private $price;
 		private $img;
 		private $qt;
+		private $category;
 
 
 		public function getId(){
@@ -57,6 +58,14 @@
 
 		public function setQt($qt){
 			$this->qt = $qt;
+		}
+
+		public function getCategory(){
+			return $this->category;
+		}
+
+		public function setCategory($category){
+			$this->category = $category;
 		}
 
 

@@ -1,63 +1,73 @@
 <?php
 	
 
-	require_once("templates/header.php")
+	require_once("templates/header.php");
+
+	$filter = null;
+	$productDAO = new ProductDAO($pdo);
 
 
+	$listProducts = $productDAO->returnAll($filter);
 
 ?>
 
-	<div class="container">
+<div class="container">
 
-		<div class="search-product">
-			<form method="POST" action="<?=$BASE_URL?>index.php">
-				<input type="text" name="search" placeholder="Busque por Produtos">
-				<button><i class="bi bi-search"></i></button>
-			</form>
-		</div>
-		
-		<table class="container-products">
+	<div class="search-product">
+		<form method="GET" action="<?=$BASE_URL?>index.php">
+			<input type="text" name="search" placeholder="Busque por Produtos">
+			<button><i class="bi bi-search"></i></button>
+		</form>
+	</div>
+	
+	<table class="container-products">
 
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Imagem</th>
-					<th>Nome do Produto</th>
-					<th>Categoria</th>
-					<th>Editar</th>
-					<th>Excluir</th>
-				</tr>
-			</thead>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Imagem</th>
+				<th>Nome do Produto</th>
+				<th>Categoria</th>
+				<th>Editar</th>
+				<th>Excluir</th>
+			</tr>
+		</thead>
 
-			<tbody>
+		<tbody>
+
+			<?php foreach ($listProducts as $product): ?>
+				
 				<tr class="product">
-					<td class="id-product">1</td>
+
+					<td class="id-product"><?=$product->getId()?></td>
 
 					<td class="image-product">
-						<img src="image.png">
+						<img src="<?=$BASE_URL?>images/<?=$product->getImg()?>">
 					</td>
 
 					<td>
-						<a class="title-product" href="view.php?id">Refrigerante</a>
+						<a class="title-product" href="<?=$BASE_URL?>view.php?id=<?=$product->getId()?>"><?=$product->getName()?></a>
 					</td>
 
 					<td class="category-product">
-						Frios
+						<?=$product->getCategory()?>
 					</td>
 
 					<td class="edit-product">
-						<a href="edit.php?id="><i class="bi bi-pencil"></i></a>
+						<a href="edit.php?id=<?=$product->getId()?>"><i class="bi bi-pencil"></i></a>
 					</td>
+
 					<td class="delete-product">
-						<a href="delete.php?id="><i class="bi bi-trash"></i></a>
+						<a href="delete.php?id=<?=$product->getId()?>"><i class="bi bi-trash"></i></a>
 					</td>
 
 				</tr>
 
-				
-			</tbody>
-		</table>
-	</div>
+			<?php endforeach ?>
+		
+		</tbody>
+	</table>
+</div>
 
 
 <?php require_once("templates/footer.php")?>
