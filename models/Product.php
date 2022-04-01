@@ -77,7 +77,7 @@
 
 		public function create(Product $product);
 		public function update(Product $product);
-		public function returnAll($filter);
+		public function returnAll($filter, $category);
 		public function returnById($id);
 		public function delete($id);
 

@@ -59,18 +59,24 @@
 				</ul>
 
 				<form action="<?=$BASE_URL?>index.php" method="POST">
-					<span>Buscar por Categoria</span>
+					<span>Selecionar Categoria</span>
 					<div>
 							
 						<select name="category" >
 							<option value="Todos">Todos</option>
 							<?php foreach ($listCategories  as $category): ?>
 								
-								<option value="<?=$category->getCategory()?>"><?=$category->getCategory()?></option>
+								<?php if($category->getCategory() == $_COOKIE['category']):?>
+									<option selected value="<?=$category->getCategory()?>"><?=$category->getCategory()?></option>
+								<?php else:?>
+									<option value="<?=$category->getCategory()?>"><?=$category->getCategory()?></option>
+
+								<?php endif?>
+
 							<?php endforeach ?>
 						</select>
 
-						<input type="submit" value="Buscar">
+						<input type="submit" value="Selecionar">
 					</div>
 				</form>
 			</nav>

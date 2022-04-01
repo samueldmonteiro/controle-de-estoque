@@ -360,7 +360,14 @@ label.label-image input{
 	cursor: pointer;
 }
 /* FOOTER */
+
 footer{
 	position: absolute;
 	bottom: 0;
+	font-size: 15px;
+	background-color: var(--color-1);
+	text-align: center;
+	padding: 10px;
+	width: 100%;
+	color: white;
 }

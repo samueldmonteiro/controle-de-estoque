@@ -32,14 +32,25 @@
 		
 		public function update(Product $product){}
 
-		public function returnAll($filter){
+		public function returnAll($filter, $category){
 
-			if($filter == null){
-				$stmt = $this->pdo->query("SELECT * FROM estoque");
 
-				$stmt->execute();
+			if($category != "Todos"){
+				$stmt = $this->pdo->prepare("SELECT * FROM estoque WHERE category=:cat AND name LIKE :filter");
+
+				$stmt->bindValue(':cat',$category);
+				$stmt->bindValue(':filter', "%$filter%");
+
+
+				
+			}elseif($category == "Todos"){
+
+				$stmt = $this->pdo->prepare("SELECT * FROM estoque WHERE name LIKE :filter");
+
+				$stmt->bindValue(':filter', "%$filter%");
 			}
 
+			$stmt->execute();
 			$data = $stmt->fetchAll();
 
 			$products = [];
@@ -61,7 +72,38 @@
 			return $products;
 		}
 
-		public function returnById($id){}
+		public function returnById($id){
+
+			$stmt = $this->pdo->prepare("SELECT * FROM estoque WHERE id=:id");
+
+			$stmt->bindValue(':id',$id);
+
+			$stmt->execute();
+
+			if($stmt->rowCount() > 0){
+
+				$data = $stmt->fetch();
+
+				$newProduct = new Product();
+
+				$newProduct->setId($data['id']);
+				$newProduct->setName($data['name']);
+				$newProduct->setDescription($data['description']);
+				$newProduct->setPrice($data['price']);
+				$newProduct->setImg($data['img']);
+				$newProduct->setCategory($data['category']);
+				$newProduct->setQt($data['qt']);
+
+
+				return $newProduct;
+
+			}else{
+				return false;
+			}
+
+
+
+		}
 		public function delete($id){}
 
 	}

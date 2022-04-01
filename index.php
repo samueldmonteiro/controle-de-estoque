@@ -8,7 +8,14 @@
 	$productDAO = new ProductDAO($pdo);
 
 
-	$listProducts = $productDAO->returnAll($filter);
+	if(isset($_GET['search'])){
+
+		$sanitize = new Sanitize();
+		$filter = $sanitize->sanitizeTexT($_GET['search']);
+
+	}
+
+	$listProducts = $productDAO->returnAll($filter, $_COOKIE['category']);
 
 ?>
 
