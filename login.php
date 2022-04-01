@@ -11,8 +11,6 @@
 	}
 
 	$msg = null;
-
-
 	
 	if(isset($_POST['email']) && isset($_POST['password'])){
 
@@ -37,16 +35,9 @@
 				exit;
 			}
 		}
-		
-
-
-
-
 	}
 
-
 ?>
-
 
 <div class="container">
 	<form method="POST" action="<?=$BASE_URL?>login.php" class="login">
@@ -55,6 +46,7 @@
 			<?php if($msg):?>
 				<span class="msg"><?=$msg?></span>
 			<?php endif?>
+			
 			<input type="text" name="email" placeholder="Seu Email">
 
 			<input type="password" name="password" placeholder="Sua Senha">

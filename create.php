@@ -10,8 +10,6 @@
 		exit;
 	}
 
-	
-
 	$msg = null;
 	$typeMsg = "error";
 
@@ -56,9 +54,8 @@
 	        	$nameImage = $resultUpload;
 
 	        	$productDAO = new ProductDAO($pdo);
-
+	        	
 	        	$newProduct = new Product();
-
 	        	$newProduct->setName($name);
 	        	$newProduct->setDescription($description);
 	        	$newProduct->setPrice($price);
@@ -75,14 +72,7 @@
 		}else{
 			$msg = "Preencha Todos os Campos!";
 		}
-
-		
-
-
-
-
 	}
-
 
 ?>
 

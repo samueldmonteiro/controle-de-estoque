@@ -10,8 +10,6 @@
 		exit;
 	}
 
-	
-
 	$msg = null;
 	$typeMsg = "error";
 
@@ -23,7 +21,6 @@
 	if(isset($_GET['id'])){
 
 		$id = $sanitize->sanitizeId($_GET['id']);
-
 		$product = $productDAO->returnById($id);
 	}
 
@@ -39,14 +36,12 @@
 
 		if($name != "" && $description != "" && $price != "" && $qt != ""  && $category_product != "" && $id_product != ""){
 
-
         	$name = $sanitize->sanitizeText($name);
         	$description = $sanitize->sanitizeText($description);
 			$category_product = $sanitize->sanitizeText($category_product);
 			$price = $sanitize->sanitizeNumber($price);
         	$qt = $sanitize->sanitizeNumber($qt);
         	$id_product = $sanitize->sanitizeId($id_product);
-
 
         	$newProduct->setName($name);
         	$newProduct->setDescription($description);
@@ -68,24 +63,14 @@
 		}else{
 			$msg = "Preencha Todos os Campos!";
 		}
-
-		
-
-
-
-
 	}
-
-
 ?>
-
 
 <div class="container">
 
 	<form action="edit.php" method="POST" class="create" >
 
 		<h1>Editar Produto</h1>
-
 
 		<label>
 			Categoria

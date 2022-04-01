@@ -1,17 +1,14 @@
 <?php
 	
-
 	require_once("templates/header.php");
 
 	$filter = null;
 	$productDAO = new ProductDAO($pdo);
 
-
 	if(isset($_GET['search'])){
 
 		$sanitize = new Sanitize();
 		$filter = $sanitize->sanitizeTexT($_GET['search']);
-
 	}
 
 	$listProducts = $productDAO->returnAll($filter, $_COOKIE['category']);

@@ -1,6 +1,5 @@
 <?php 
 
-
 	require_once("templates/header.php");
 
 	if(!isset($_SESSION['logged'])){
@@ -16,9 +15,7 @@
 		exit;
 	}
 
-
 ?>
-
 
 <div class="container">
 

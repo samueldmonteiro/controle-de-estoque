@@ -15,7 +15,6 @@
 }
 
 :root{
-
 	--size-container: 1200px;
 	--color-1: #161616;
 }
@@ -30,6 +29,7 @@ img{
 	height: 100%;
 	display: block;
 }
+
 .container {
 	margin: 40px auto;
 	max-width: var(--size-container);
@@ -137,6 +137,7 @@ nav form input{
 
 .container-products{
 	border: 2px solid whitesmoke;
+	border-radius: 10px;
 	width: 100%;
 	padding: 10px;
 }
@@ -161,6 +162,7 @@ nav form input{
 .container-products .title-product{
 	font-size: 19px;
 	color: black;
+	font-weight: 500;
 }
 
 .container-products .config-product a{
@@ -191,11 +193,15 @@ table{
 	text-align: center;
 	border-collapse: collapse;
 	border-radius: 10px;
-	
+	border-spacing: 0;
+	font-weight: 400;
+
 }
 
 table thead{
-	background-color: #f3f3f3;
+	background-color: var(--color-1);
+	color: white;
+	border-radius: 10px;
 }
 
 
@@ -207,6 +213,7 @@ table thead th{
 table tbody tr{
 	
 	border-bottom: 1px solid #dddddd;
+	border-radius: 10px;
 }
 
 table tbody tr:hover{
@@ -217,6 +224,8 @@ table tbody tr:hover{
 table td{
 	padding: 5px;
 }
+
+
 
 /* LOGIN */
 
