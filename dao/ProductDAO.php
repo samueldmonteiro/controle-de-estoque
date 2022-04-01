@@ -121,7 +121,15 @@
 
 
 		}
-		public function delete($id){}
+		public function delete($id){
+
+
+			$stmt = $this->pdo->prepare("DELETE FROM estoque WHERE id=:id");
+
+			$stmt->bindValue(":id", $id);
+
+			$stmt->execute();
+		}
 
 	}
 

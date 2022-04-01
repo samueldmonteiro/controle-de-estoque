@@ -78,7 +78,7 @@
 						</td>
 
 						<td class="delete-product">
-							<a href="delete.php?id=<?=$product->getId()?>"><i class="bi bi-trash"></i></a>
+							<a href="delete.php?id=<?=$product->getId()?>" onclick="confirm('Deseja Deletar este Produto?')"><i class="bi bi-trash"></i></a>
 						</td>
 					<?php else:?>
 							<td class="edit-product disable">

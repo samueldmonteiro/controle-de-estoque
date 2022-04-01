@@ -8,6 +8,14 @@
 		exit;
 	}
 
+	if(isset($_GET['logout'])){
+		session_unset();
+		$_SESSION = [];
+		session_destroy();
+		header("Location: $BASE_URL");
+		exit;
+	}
+
 
 ?>
 

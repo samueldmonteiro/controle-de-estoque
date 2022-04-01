@@ -84,7 +84,7 @@
 
 	<form action="edit.php" method="POST" class="create" >
 
-		<h1>Cadastrar Produto</h1>
+		<h1>Editar Produto</h1>
 
 
 		<label>
@@ -116,7 +116,7 @@
 			<input type="number" name="qt" placeholder="Quantidade"  value="<?=$product->getQt()?>">
 		</div>
 
-		<input type="submit" value="Cadastrar Produto">
+		<input type="submit" value="Editar Produto">
 
 		<?php if($msg):?>
 				<span class="msg <?=$typeMsg?>"><?=$msg?></span>
