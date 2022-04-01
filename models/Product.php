@@ -16,7 +16,7 @@
 			return $this->id;
 		}
 
-		public function setid($id){
+		public function setId($id){
 			$this->id = $id;
 		}
 
@@ -41,6 +41,7 @@
 		}
 
 		public function setPrice($price){
+
 			$this->price = $price;
 		}
 

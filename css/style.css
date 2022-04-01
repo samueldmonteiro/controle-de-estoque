@@ -16,8 +16,8 @@
 
 :root{
 
-	--size-container: 1000px;
-	--color-1: #056dfd;
+	--size-container: 1200px;
+	--color-1: #161616;
 }
 
 html{
@@ -177,6 +177,9 @@ nav form input{
 	color: var(--color-1);
 }
 
+.container-products .disable i{
+	color: gray;
+}
 .container-products .delete-product a{
 	color: red;
 }
@@ -209,6 +212,9 @@ table tbody tr:hover{
 	 transition: 0.2s;
 }
 
+table td{
+	padding: 5px;
+}
 
 /* LOGIN */
 
@@ -246,7 +252,7 @@ table tbody tr:hover{
 	background-color: var(--color-1);
 }
 
-.login .msg{
+.msg{
 	background-color: red;
 	padding: 15px;
 	margin: 10px 0px;
@@ -254,6 +260,104 @@ table tbody tr:hover{
 	color: white;
 	font-size: 19px;
 	text-align: center;
+}
+
+.error{
+	background-color: red;
+
+}
+
+.success {
+	background-color: #1162d2;
+}
+
+/* MANAGER */
+
+.controls-manager{
+	margin: 60px auto;
+	max-width: 240px;
+	text-align: center;
+}
+
+.controls-manager ul{
+	width: 100%;
+}
+.controls-manager li{
+	margin: 20px 0px;
+	font-size: 20px;
+	width: 100%;
+}
+
+.controls-manager a{
+	color: white;
+	background-color: var(--color-1);
+	padding: 15px 12px;
+	width: 100%;
+	display: block;
+}
+
+
+/* CREATE */
+
+.create{
+	display: flex;
+	flex-direction: column;
+	max-width: 750px;
+	margin: 50px auto;
+}
+
+.create h1{
+	margin-bottom: 30px;
+	text-align: center;
+	font-weight: 500;
+	font-size: 28px;
+}
+
+.create label{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	font-size: 20px;
+	text-align: center;
+	margin: 5px 0px;
+}
+
+.create input,select{
+	width: 100%;
+	padding: 10px 15px;
+	font-size: 18px;
+	margin: 5px 0px;
+}
+
+label.label-image{
+	background-color: var(--color-1);
+	padding: 15px;
+	max-width: 200px;
+	color: white;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	cursor: pointer;
+	font-size: 19px;
+}
+label.label-image input{
+	display: none;
+}
+
+.create div{
+	display: flex;
+}
+
+.create div input:first-child{
+	margin-right: 10px;
+}
+
+.create input[type="submit"]{
+	background-color: var(--color-1);
+	color: white;
+	border: none;
+	margin-top: 10px;
+	padding: 15px;
+	cursor: pointer;
 }
 /* FOOTER */
 footer{

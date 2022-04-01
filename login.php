@@ -5,9 +5,15 @@
 	require_once("dao/LoginDAO.php");
 
 
+	if(isset($_SESSION['logged'])){
+		header("Location: $BASE_URL");
+		exit;
+	}
+
 	$msg = null;
 
 
+	
 	if(isset($_POST['email']) && isset($_POST['password'])){
 
 
@@ -24,10 +30,11 @@
 
 			$result = $loginDAO->login($newLogin);
 
-			if($result){
-				echo "ok";
-			}else{
+			if(!$result){
 				$msg = "Email ou Senha Inválidos!";
+			}else{
+				header("Location: $BASE_URL");
+				exit;
 			}
 		}
 		

@@ -26,9 +26,13 @@
 			$stmt->execute();
 
 			if($stmt->rowCount() > 0){
-				$passwordHash = $stmt->fetch()['password'];
+				$user = $stmt->fetch();
+				$passwordHash = $user['password'];
 
 				if(password_verify($password, $passwordHash)){
+					$_SESSION['logged'] = true;
+					$_SESSION['name'] = explode("@", $email)[0];
+					$_SESSION['id'] = $user['id'];
 					return true;
 				}
 			}else{

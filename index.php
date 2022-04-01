@@ -3,6 +3,7 @@
 
 	require_once("templates/header.php");
 
+	
 	$filter = null;
 	$productDAO = new ProductDAO($pdo);
 
@@ -28,8 +29,11 @@
 				<th>Imagem</th>
 				<th>Nome do Produto</th>
 				<th>Categoria</th>
+				<th>Preço</th>
+				<th>Quantidade</th>
 				<th>Editar</th>
 				<th>Excluir</th>
+
 			</tr>
 		</thead>
 
@@ -53,13 +57,32 @@
 						<?=$product->getCategory()?>
 					</td>
 
-					<td class="edit-product">
-						<a href="edit.php?id=<?=$product->getId()?>"><i class="bi bi-pencil"></i></a>
+					<td>
+						<?="R$ " . number_format($product->getPrice(),2)?>
 					</td>
 
-					<td class="delete-product">
-						<a href="delete.php?id=<?=$product->getId()?>"><i class="bi bi-trash"></i></a>
+					<td>
+						<?=$product->getQt()?>
 					</td>
+
+					<?php if(isset($_SESSION['logged'])):?>
+
+						<td class="edit-product">
+							<a href="edit.php?id=<?=$product->getId()?>"><i class="bi bi-pencil"></i></a>
+						</td>
+
+						<td class="delete-product">
+							<a href="delete.php?id=<?=$product->getId()?>"><i class="bi bi-trash"></i></a>
+						</td>
+					<?php else:?>
+							<td class="edit-product disable">
+								<i class="bi bi-pencil"></i>
+							</td>
+
+							<td class="delete-product disable">
+								<i class="bi bi-trash"></i>
+							</td>
+					<?php endif?>
 
 				</tr>
 

@@ -12,6 +12,22 @@
 		}
 		public function create(Product $product){
 
+			try{
+				$stmt = $this->pdo->prepare("INSERT INTO estoque (name, description, price, img, qt, category) VALUES (:name, :desc, :price, :img, :qt, :cat)");
+
+				$stmt->bindValue(':name',$product->getName());
+				$stmt->bindValue(':desc',$product->getDescription());
+				$stmt->bindValue(':price',$product->getPrice());
+				$stmt->bindValue(':img',$product->getImg());
+				$stmt->bindValue(':qt',$product->getQt());
+				$stmt->bindValue(':cat',$product->getCategory());
+
+				$stmt->execute();
+			}catch(PDOException $e){
+				echo $e->getMessage();
+			}
+
+
 		}
 		
 		public function update(Product $product){}

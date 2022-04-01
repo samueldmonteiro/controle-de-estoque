@@ -1,9 +1,14 @@
 <?php
 
 	require_once("config/globals.php");
-
 	require_once("dao/CategoryDAO.php");
 	require_once("dao/ProductDAO.php");
+	require_once("classes/Sanitize.php");
+
+
+	if(!isset($_SESSION)){
+		session_start();
+	}
 
 
 	$newCategory = new Category();
@@ -45,8 +50,12 @@
 			<nav>
 				<ul>
 					<li><a href="<?=$BASE_URL?>index.php">Home</a></li>
-					<li><a href="<?=$BASE_URL?>login.php">Login</a></li>
-
+					<?php if(isset($_SESSION['logged'])):?>
+						<li><a href="<?=$BASE_URL?>manager.php"><?=$_SESSION['name']?></a></li>
+						
+					<?php else:?>	
+						<li><a href="<?=$BASE_URL?>login.php">Login</a></li>
+					<?php endif?>
 				</ul>
 
 				<form action="<?=$BASE_URL?>index.php" method="POST">
