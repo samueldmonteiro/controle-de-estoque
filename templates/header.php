@@ -17,7 +17,7 @@
 	$listCategories = $categoryDAO->returnAll();
 
 	if(!isset($_COOKIE['category'])){
-		$newCategory->setInCookie('Todos');
+		$newCategory->setInCookie('Todos', "$BASE_URL");
 	}
 
 	if(isset($_POST['category'])){
@@ -25,7 +25,7 @@
 		$category = $newCategory->sanitize($_POST['category']);
 
 		if($category != $_COOKIE['category']){
-			$newCategory->setInCookie($category);
+			$newCategory->setInCookie($category, "$BASE_URL");
 		}	
 	}
 

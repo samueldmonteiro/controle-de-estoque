@@ -10,6 +10,7 @@
 		public function __construct(PDO $pdo){
 			$this->pdo = $pdo;
 		}
+
 		public function create(Product $product){
 
 			try{
@@ -30,7 +31,23 @@
 
 		}
 		
-		public function update(Product $product){}
+		public function update(Product $product){
+
+			$stmt = $this->pdo->prepare("UPDATE estoque SET name=:name, description=:desc, price=:price, qt=:qt, category=:cat WHERE id=:id");
+
+			$stmt->bindValue(':name',$product->getName());
+			$stmt->bindValue(':desc',$product->getDescription());
+			$stmt->bindValue(':price',$product->getPrice());
+			$stmt->bindValue(':qt',$product->getQt());
+			$stmt->bindValue(':cat',$product->getCategory());
+			$stmt->bindValue(':id',$product->getId());
+
+
+
+			$stmt->execute();
+
+
+		}
 
 		public function returnAll($filter, $category){
 

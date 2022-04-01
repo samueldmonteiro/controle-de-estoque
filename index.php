@@ -3,7 +3,6 @@
 
 	require_once("templates/header.php");
 
-	
 	$filter = null;
 	$productDAO = new ProductDAO($pdo);
 
@@ -64,11 +63,11 @@
 						<?=$product->getCategory()?>
 					</td>
 
-					<td>
+					<td class="product-price">
 						<?="R$ " . number_format($product->getPrice(),2)?>
 					</td>
 
-					<td>
+					<td class="product-qt">
 						<?=$product->getQt()?>
 					</td>
 

@@ -34,13 +34,13 @@
 
 		
 
-		public function setInCookie($category){
+		public function setInCookie($category, $redirect){
 
 			$expire = time() + ( 60 * 60 * 24 * 30 );
 			
 			setcookie('category', $category, $expire);
 
-			header('Location: index.php');
+			header("Location: $redirect");
 			exit;
 		}
 	}

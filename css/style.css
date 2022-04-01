@@ -33,6 +33,7 @@ img{
 .container {
 	margin: 40px auto;
 	max-width: var(--size-container);
+	margin-bottom: 130px;
 }
 
 /* HEADER */
@@ -190,6 +191,7 @@ table{
 	text-align: center;
 	border-collapse: collapse;
 	border-radius: 10px;
+	
 }
 
 table thead{
@@ -370,4 +372,52 @@ footer{
 	padding: 10px;
 	width: 100%;
 	color: white;
+}
+
+
+
+@media (max-width: 750px){
+
+
+	table {
+		width: 100%;
+	}
+
+	td, td a{		
+		font-size: 16.5px !important;	
+	}
+
+	.image-product{
+		max-width: 60px;
+		max-height: 70px;
+	}
+
+	table tr{
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 10px 15px;
+	}
+
+	table thead{
+		display: none;
+		position: absolute;
+		overflow: hidden;
+		width: 1px;
+		clip: rect(0 0 0 0);
+	}
+
+
+	
+
+	.id-product, .product-qt,.product-price{
+		display: none;
+	}
+
+
+	.create{
+		width: 100%;
+		padding: 15px;
+	}
 }
