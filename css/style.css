@@ -33,14 +33,15 @@ img{
 .container {
 	margin: 40px auto;
 	max-width: var(--size-container);
-	margin-bottom: 130px;
+	margin-bottom: 110px;
 }
 
 /* HEADER */
 
 header{
-	margin-top: 100px;
 	width: 100%;
+	background-color: var(--color-1);
+	color: white;
 }
 
 .container-header{
@@ -50,16 +51,17 @@ header{
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	padding: 25px;
 }
 
 .container-header h1{
 	font-weight: 400;
 	font-size: 28px;
-	margin-bottom: 30px;
+	margin: 30px 0px;
 }
 .container-header nav{
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	width: 100%;
 	align-items: center;
 }
@@ -69,15 +71,15 @@ nav ul, nav form{
 }
 
 nav ul li{
-	margin-right:10px;
-	font-size: 19px;
+	margin-right:15px;
+	font-size: 20px;
 	font-weight: 500;
 
 }
 
 nav ul li a{
 	padding: 10px;
-	color: black;
+	color: white;
 }
 
 nav form{
@@ -94,13 +96,13 @@ nav form span{
 nav form select{
 	padding: 5px 15px;
 	font-size: 17px;
-	width: 110px;
+	width: 120px;
 	margin-right: 10px;
 }
 
 nav form input{
 	padding: 8px 15px;
-	font-size: 17px;
+	font-size: 19px;
 	color: white;
 	background-color: var(--color-1);
 	border: none;
@@ -119,8 +121,9 @@ nav form input{
 	padding: 12px 15px;
 	font-size: 18px;
 	border-radius: 30px;
-	width: 350px;
-	border: 1px solid black;
+	width: 380px;
+	border: 2px solid var(--color-1);
+	color: var(--color-1);
 
 }
 
@@ -132,6 +135,7 @@ nav form input{
 	border: none;
 	cursor: pointer;
 	padding: 10px;
+	color: var(--color-1);
 }
 /* PRODUCT */
 
@@ -383,10 +387,94 @@ footer{
 	color: white;
 }
 
+/* VIEW PRODUCT */
+
+.view-product{
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
+
+.view-product .image-product{
+	max-width: 400px;
+	max-height: 500px;
+}
 
 
-@media (max-width: 750px){
+.view-product .info-product{
+	margin-left: 30px;
+	max-width: 500px;
+	min-width: 400px;
+}
+.view-product .name-product{
+	font-size: 25px;
+	font-weight: 500;
+	margin-bottom: 15px;
+}
 
+.view-product .qt-product{
+	text-align: right;
+	display: block;
+	width: 100%;
+}
+
+.view-product .desc-product{
+	font-size: 18.5px;
+	margin: 10px 0px;
+	line-height: 1.4em;
+}
+
+.view-product form{
+	margin-top:25px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.view-product form input{
+	padding: 10px 15px;
+	font-size: 18px;
+	max-width: 100px;
+	width: 70px;
+}
+
+.view-product .product-unidades{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+
+.view-product .product-unidades span{
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+
+.view-product form input[type="submit"]{
+	width: auto;
+	color: white;
+	background-color: var(--color-1);
+	max-width: none;
+	border: none;
+	border-radius: 30px;
+	padding: 15px;
+	cursor: pointer;
+}
+.view-product .price-qt{
+	display: flex;
+	justify-content: space-between;
+	margin: 20px 0px;
+	width: 100%;
+	font-size: 18px;
+}
+
+
+@media (max-width: 790px){
+
+
+	.login{
+		width: 90%;
+	}
 
 	table {
 		width: 100%;
@@ -420,7 +508,7 @@ footer{
 
 	
 
-	.id-product, .product-qt,.product-price{
+	.id-product, .product-qt,.category-product{
 		display: none;
 	}
 
@@ -429,4 +517,75 @@ footer{
 		width: 100%;
 		padding: 15px;
 	}
+
+	.view-product{
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.view-product .image-product{
+		margin-bottom: 25px;
+		width: 80%;
+	}
+
+	.view-product .info-product{
+		width: 100%;
+		padding: 10px 15px;
+		margin: 0px;
+		min-width: none;
+	}
+
+	.view-product .desc-product{
+		font-size: 19px;
+	}
+}
+
+
+@media (max-width: 600px){
+
+
+	.container-header nav{
+		flex-direction: column;
+	}
+
+	.container-header form{
+		margin-top: 40px;
+	}
+
+
+	nav ul li{
+		margin: 0px 50px;
+	}
+
+	nav form span{
+		margin-bottom: 22px;
+	}
+
+	nav form select{
+		margin-right: 30px;
+	}
+
+	.search-product form{
+		text-align: center;
+		margin: 0;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+	}
+	.search-product input{
+		width: 85%;
+		margin: 0;
+		margin: 20px auto;
+		display: inline-block;
+		margin-left: 30px;
+	}
+
+	.product-price{
+		display: none;
+	}
+
+
+	
 }

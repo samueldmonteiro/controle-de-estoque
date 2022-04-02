@@ -45,8 +45,7 @@
 
 	<header>
 		<div class="container-header">
-			<h1>Controle de Estoque</h1>
-
+			
 			<nav>
 				<ul>
 					<li><a href="<?=$BASE_URL?>index.php">Home</a></li>
@@ -78,7 +77,11 @@
 
 						<input type="submit" value="Selecionar">
 					</div>
+
 				</form>
+
 			</nav>
+			
+
 		</div>
 	</header>

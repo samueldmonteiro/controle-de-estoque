@@ -131,6 +131,23 @@
 			$stmt->execute();
 		}
 
+		public function buy($id, $qt_buy, $current_qt){
+
+
+			$qt_update =  $current_qt - $qt_buy;
+
+			if($qt_update < 0){
+				$qt_update = 0;
+			}
+
+			$stmt = $this->pdo->prepare("UPDATE estoque SET qt=:qt WHERE id=:id");
+
+			$stmt->bindValue(':qt',$qt_update);
+			$stmt->bindValue(':id',$id);
+
+			$stmt->execute();
+		}
+
 	}
 
 
